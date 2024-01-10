@@ -39,4 +39,13 @@ class UserController extends Controller
         auth()->login($user);
         return redirect('/index')->with('success', 'you account has been created');
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/login')->with('success' , 'goodbye !');
+    }
+
+
+
 }
