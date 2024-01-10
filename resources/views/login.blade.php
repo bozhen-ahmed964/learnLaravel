@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-center" style="margin-top: 300px;">
         <div class=" border rounded-4 bg-dark p-4">
             <h3 class="text-light">Login</h3>
-            <form action="#" method="POST" class="d-flex flex-column ">
+            <form action="{{ route('loginForm') }}" method="POST" class="d-flex flex-column ">
                 @csrf
 
                 <label class="text-light d-flex flex-cloumn">Email : </label>

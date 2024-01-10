@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/login', [App\Http\Controllers\UserController::class, 'login'])->name('loginPage');
+Route::get('/login', [UserController::class, 'login'])->name('loginPage');
+Route::post('/loginForm', [UserController::class, 'loginUser'])->name('loginForm');
 
 
-Route::get('/register', [App\Http\Controllers\UserController::class, 'register'])->name('registerPage')->middleware('guest');
-Route::post('/store', [App\Http\Controllers\UserController::class, 'store'])->name('storeUser')->middleware('guest');
+Route::get('/register', [UserController::class, 'register'])->name('registerPage')->middleware('guest');
+Route::post('/store', [UserController::class, 'store'])->name('storeUser')->middleware('guest');
 
-Route::post('/logout' , [UserController::class , 'logout'])->name('logoutBtn');
+Route::post('/logout', [UserController::class, 'logout'])->name('logoutBtn');
 
 Route::get('/index', [IndexController::class,  'index'])->name('indexPage');

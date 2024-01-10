@@ -17,6 +17,20 @@ class UserController extends Controller
     }
 
 
+    public function loginUser()
+    {
+        $attributes = request()->validate([
+
+            'email' => ['required', 'exists:users,email'],
+            'password' => ['required'],
+        ]);
+
+        if (auth()->attempt($attributes)) {
+            return redirect('/index')->with('success', 'welcome');
+        }
+    }
+
+
     public function register()
     {
         return view('register');
@@ -43,9 +57,6 @@ class UserController extends Controller
     public function logout()
     {
         auth()->logout();
-        return redirect('/login')->with('success' , 'goodbye !');
+        return redirect('/login')->with('success', 'goodbye !');
     }
-
-
-
 }
